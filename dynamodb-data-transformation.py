@@ -15,9 +15,9 @@ class DecimalEncoder(json.JSONEncoder):
 
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
-src=dynamodb.Table('devDiagnosticPerformance')
+src=dynamodb.Table('qaDiagnosticPerformance')
 
-dest=dynamodb.Table('devDiagnosticPerformanceK5')
+dest=dynamodb.Table('qaDiagnosticPerformanceK5')
 
 response = src.scan()
 
