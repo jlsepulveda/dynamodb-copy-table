@@ -34,8 +34,8 @@ for i in response['Items']:
     json.dumps(i,cls=DecimalEncoder)
     new_item = {}
     for f in i.keys():
-        new_item[f] = i[f]
-    new_item['classroomCourseUUID'] = base64.b64encode(i['classroomId'] + '|0')
+        if f != "courseCode":
+            new_item[f] = i[f]
     dest.put_item(Item=new_item)
 
 while 'LastEvaluatedKey' in response:
